@@ -6,9 +6,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/karlsen-network/karlsend/cmd/karlsenwallet/keys"
-	"github.com/karlsen-network/karlsend/cmd/karlsenwallet/libkaspawallet"
-	"github.com/karlsen-network/karlsend/domain/dagconfig"
+	"github.com/karlsen-network/karlsend/v2/cmd/karlsenwallet/keys"
+	"github.com/karlsen-network/karlsend/v2/cmd/karlsenwallet/libkarlsenwallet"
+	"github.com/karlsen-network/karlsend/v2/domain/dagconfig"
 	"github.com/skip2/go-qrcode"
 	"github.com/karlsen-network/karlsen-paper/model"
 )
@@ -50,8 +50,8 @@ func (w *wallet) Mnemonic() *model.MnemonicString {
 }
 
 func (w *wallet) Address(index int) (string, error) {
-	path := fmt.Sprintf("m/%d/%d", libkaspawallet.ExternalKeychain, index)
-	address, err := libkaspawallet.Address(w.dagParams, w.keysFile.ExtendedPublicKeys, 1, path, false)
+	path := fmt.Sprintf("m/%d/%d", libkarlsenwallet.ExternalKeychain, index)
+	address, err := libkarlsenwallet.Address(w.dagParams, w.keysFile.ExtendedPublicKeys, 1, path, false)
 	if err != nil {
 		return "", err
 	}
