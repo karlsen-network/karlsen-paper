@@ -7,7 +7,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/karlsen-network/karlsend/domain/dagconfig"
+	"github.com/karlsen-network/karlsend/v2/domain/dagconfig"
 	"github.com/karlsen-network/karlsen-paper/paper"
 )
 

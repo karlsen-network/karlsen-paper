@@ -1,9 +1,9 @@
 package paper
 
 import (
-	"github.com/karlsen-network/karlsend/cmd/karlsenwallet/libkaspawallet"
-	"github.com/karlsen-network/karlsend/cmd/karlsenwallet/utils"
-	"github.com/karlsen-network/karlsend/domain/dagconfig"
+	"github.com/karlsen-network/karlsend/v2/cmd/karlsenwallet/libkarlsenwallet"
+	"github.com/karlsen-network/karlsend/v2/cmd/karlsenwallet/utils"
+	"github.com/karlsen-network/karlsend/v2/domain/dagconfig"
 	"github.com/karlsen-network/karlsen-paper/model"
 	"github.com/pkg/errors"
 	"github.com/tyler-smith/go-bip39"
@@ -38,7 +38,7 @@ func (a *api) GenerateWallet() (model.PaperWallet, error) {
 
 	if mnemonics == "" {
 		fmt.Printf("Creating new mnemonics\n")
-		mnemonics, err = libkaspawallet.CreateMnemonic()
+		mnemonics, err = libkarlsenwallet.CreateMnemonic()
 	} else {
 		if !bip39.IsMnemonicValid(string(mnemonics)) {
 			return nil, errors.Errorf("mnemonic is invalid")
